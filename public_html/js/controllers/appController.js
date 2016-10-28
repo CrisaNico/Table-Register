@@ -9,6 +9,10 @@ app.controller('AppController',['swInfo', function(swInfo){
        {
            url:'#/register',
            title:'Registro'
+       },
+       {
+           url:'#/table',
+           title:'Tabella'
        }
    ];
    vm.ver = swInfo.version;

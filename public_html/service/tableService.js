@@ -1,4 +1,4 @@
-app.service('RegisterService', [ '$http', 'URL', function( $http, URL ){
+app.service('TableService', [ '$http', 'URL', function( $http, URL ){
     
     var onError = function(response)
         {console.log("Errore di chiamata: ", response)};
@@ -7,7 +7,7 @@ app.service('RegisterService', [ '$http', 'URL', function( $http, URL ){
     var getDayTot = function(request, onReady){
         var data = request? request.data : {};
         $http({
-            url : URL.REST + '/register.json',
+            url : URL.REST + '/registro.json',
             method : "GET",
             data : data,
             dataType : "json"

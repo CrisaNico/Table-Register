@@ -10,6 +10,10 @@ app.conf=function ($routeProvider) {
       controller: 'RegisterController', 
       templateUrl: 'views/register.html' 
     }) 
+    .when('/table', {
+      controller: 'TableController', 
+      templateUrl: 'views/table.html' 
+    }) 
     .otherwise({ 
       redirectTo: '/' 
     }); 

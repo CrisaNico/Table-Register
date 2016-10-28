@@ -1,0 +1,37 @@
+{
+	"result": {
+		"_id":143,
+		"day" : "2016-10-25",
+		"cl" : "3A",
+		"classes_id":5,
+		"schools_id":2,
+		"subjects": [
+			{"_id":1,"subject":"ITALIANO","teachers_id":1},
+			{"_id":2,"subject":"STORIA","teachers_id":1},
+			{"_id":3,"subject":"GEOGRAFIA","teachers_id":1},
+			{"_id":4,"subject":"MATEMATICA","teachers_id":2},
+			{"_id":5,"subject":"SUPPLENZA"}
+		],	
+		"teachers": [
+			{"_id":1,"fullname":"ROSSI GIOVANNI"},
+			{"_id":2,"fullname":"BIANCHI MARIA"}
+		],
+		"lessons" : [
+			{"_id":1234,"position": 1,"subjects_id":1,"teachers_id":1,"description":"TEMA IN CLASSE"},
+			{"_id":1235,"position": 2,"subjects_id":1,"teachers_id":1,"description":"TEMA IN CLASSE"}
+		],
+		"students": [
+			{"_id":312,"fullname":"ADINOSI EMILIA"},
+			{"_id":313,"fullname":"ALIBERTI ARIANNA"},
+			{"_id":314,"fullname":"BARDELLI LUCIANO"},
+			{"_id":315,"fullname":"CAPELLI EGISTO"},
+			{"_id":316,"fullname":"CAPELLI GUIDO"},
+			{"_id":317,"fullname":"GIOBBE EMILIO"},
+			{"_id":318,"fullname":"GIUSTO RAFFAELE"},
+			{"_id":319,"fullname":"LUCCI LUCIANO"},
+			{"_id":320,"fullname":"MOLTI EMILIANO"},
+			{"_id":321,"fullname":"RAPACI ANTONIO"}			
+		]
+	}
+}
+
