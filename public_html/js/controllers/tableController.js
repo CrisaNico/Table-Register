@@ -1,40 +1,40 @@
-app.controller('TableController', ['$scope', "TableService", function($scope, TableService){
+app.controller('TableController', ['$scope', 'TableService', function($scope, TableService){
     var vm = $scope;
     
-    vm.presents = [];
-    vm.present = {};
+    vm.presTot = [];
+    vm.presence = {};
     
     vm.init = function(){
-      vm.resetPresent();
-      vm.resetPresents();
+      vm.resetPresence();
+      vm.resetPresTot();
     };
     
-    var populatePresents = function(response){
-        var presents = response.data.result.presents;
-        vm.presents.length = 0;
-        for (var i = 0; i < presents.length; i++){
-            vm.presents.push(presents[i]);
+    var populatePresTot = function(response){
+        var presTot = response.data.result.students;
+        vm.presTot.length = 0;
+        for (var i = 0; i < presTot.length; i++){
+            vm.presTot.push(presTot[i]);
         }
-    }
-    
-    vm.resetPresents = function(){
-        TableService.getPresents(null, populatePresents);
     };
     
-    vm.resetPresent = function(){
-        vm.present.name = '';
-        vm.present.index = -1;
+    vm.resetPresTot = function(){
+        TableService.getPresTot(null, populatePresTot);
     };
     
-    vm.getPresent = function(s){
-        var present = {};
-        present.name = s.name
-        return present;
+    vm.resetPresence = function(){
+        vm.presence.name = '';
+        vm.presence.index = -1;
     };
     
-    vm.showPresent = function(index){
-        vm.present = vm.getPresent(vm.presents[index]);
-        vm.present.index = index;
+    vm.getPresence = function(s){
+        var presence = {};
+        presence.name = s.name
+        return presence;
+    };
+    
+    vm.showPresence = function(index){
+        vm.presence = vm.getPresence(vm.presence[index]);
+        vm.presence.index = index;
     };
 
     vm.init();

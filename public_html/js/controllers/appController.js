@@ -7,14 +7,9 @@ app.controller('AppController',['swInfo', function(swInfo){
            title:'Home'
        },
        {
-           url:'#/register',
-           title:'Registro'
-       },
-       {
            url:'#/table',
            title:'Tabella'
        }
    ];
    vm.ver = swInfo.version;
-   vm.today = new Date();
 }]);
