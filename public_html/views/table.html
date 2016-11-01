@@ -3,6 +3,7 @@
         <table class="table table-bordered">
             <thead>
                 <th>
+                    <i class="fa fa-user"></i>
                     Allievi e Presenze 
                                 
                 </th>
@@ -12,22 +13,23 @@
                 <tr ng-repeat="pres in presTot">
 
                     <td>
+                      <i class="fa fa-bars"></i>  
                       {{ pres.fullname }}
-                    <select>
-                        <option value="Pres">Pres</option>
-                        <option value="Ass">Ass</option>
+                      
+                    <select ng-model="selectedValue" ng-options="item for item in presence.values" ng-change="setPresence(pres, selectedValue)">
+                        <!--<option value="Pres">Pres</option>
+                        <option value="Ass">Ass</option>-->
                     </select>
                     </td>
-               </tr>
-               
+               </tr>             
       
             </tbody>
 
         </table>
         <div>
-          <span class="label label-success">Presenze</span>
-          <span class="label label-danger">Assenze</span>
-          <span class="label label-warning">Totali</span>
+          <span class="label label-success">Presenti: {{presence.pres}} </span>
+          <span class="label label-danger">Assenti: {{presence.ass}}</span>
+          <span class="label label-warning">Totali: {{presTot.length}}</span>
         </div>
     </div>
 </div>

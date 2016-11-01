@@ -3,39 +3,30 @@ app.controller('TableController', ['$scope', 'TableService', function($scope, Ta
     
     vm.presTot = [];
     vm.presence = {};
+    vm.presence.values = ["Pres","Ass"];
+    vm.presence.pres = 0;
+    vm.presence.ass = 0;
     
     vm.init = function(){
-      vm.resetPresence();
-      vm.resetPresTot();
-    };
-    
+        TableService.getPresTot(null, populatePresTot);
+    };    
     var populatePresTot = function(response){
         var presTot = response.data.result.students;
-        vm.presTot.length = 0;
         for (var i = 0; i < presTot.length; i++){
             vm.presTot.push(presTot[i]);
+            vm.presence[""+presTot[i]._id] = 0;
+        }        
+    };
+    vm.setPresence = function(pres, val){
+        vm.presence.ass = 0;
+        vm.presence.pres = 0;
+        vm.presence[""+pres._id] = (val == "Pres" ? 1 : 0);
+        for (var i = 0; i < vm.presTot.length; i++){
+            if (vm.presence[""+vm.presTot[i]._id] == 0)
+               vm.presence.ass++;
+            else
+               vm.presence.pres++;           
         }
     };
-    
-    vm.resetPresTot = function(){
-        TableService.getPresTot(null, populatePresTot);
-    };
-    
-    vm.resetPresence = function(){
-        vm.presence.name = '';
-        vm.presence.index = -1;
-    };
-    
-    vm.getPresence = function(s){
-        var presence = {};
-        presence.name = s.name
-        return presence;
-    };
-    
-    vm.showPresence = function(index){
-        vm.presence = vm.getPresence(vm.presence[index]);
-        vm.presence.index = index;
-    };
-
     vm.init();
 }]);
